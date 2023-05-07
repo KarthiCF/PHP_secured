@@ -1,6 +1,4 @@
-
 <?php
-
 if($_POST){
     $visitor_name = "";
     $visitor_email = "";
@@ -9,9 +7,6 @@ if($_POST){
     $visitor_message = "";
     $email_body = "<div>";
     $recipient = "";
-
- 
-    
 
 
     if(isset($_POST['visitor_name'])){
@@ -83,4 +78,4 @@ if($_POST){
 
 ?>
 
-<!-- -->
+

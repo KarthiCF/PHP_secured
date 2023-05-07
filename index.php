@@ -1,4 +1,31 @@
+<?php
+$captchaCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+ 
+function secure_captcha($input, $strength = 5, $secure = true) {
+    $inputLength = strlen($input);
+    $randomString = '';
+    for($i = 0; $i < $strength; $i++) {
+        if($secure) {
+            $randomCharacter = $input[random_int(0, $inputLength - 1)];
+        } else {
+            $randomCharacter = $input[mt_rand(0, $inputLength - 1)];
+        }
+        $randomString .= $randomCharacter;
+    }
+ 
+    return $randomString;
+    
+}
+
+$stringLength = 6;
+$captchaString = secure_captcha($captchaCharacters, $stringLength);
+
+?>
+
+
+
 <!DOCTYPE html>
+
 <html>
 <head>
      <!-- Required meta tags -->
@@ -45,6 +72,19 @@
             <div class="form-group my-3">
                 <label for="message">Write your message</label>
                 <textarea id="message" name="visitor_message" placeholder="Say whatever you want." required class="form-control"></textarea>
+            </div>
+
+            <div class="form-group my-3">
+                <label for="captcha">Please enter the captcha to prove that you are not a robot.</label>
+                <div class="form-row row">
+                    <div class="form-group col">
+                        <input type="text" class="form-control" id="capt" value="<?php echo $captchaString; ?>" readonly>
+                    </div>
+                    <div class="form-group col">
+                        <input type="text" class="form-control" id="enterCap">
+                    </div>
+
+                </div>
             </div>
 
             <button type="submit" class="btn btn-success">Send message</button>
