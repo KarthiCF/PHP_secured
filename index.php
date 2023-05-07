@@ -11,9 +11,9 @@
     <title>Log in</title>
 </head>
 <body>
-    <div class="container">
+    <div class=" genc">
     <h3 class="heading my-3" style="text-align: center;">Contact Here</h3>
-    <form action="contact.php" method="post" id="contacting_form" class="container mt-5">
+    <form action="contact.php" method="post" id="contacting_form" class=" mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="form-group my-3">   
@@ -47,7 +47,7 @@
                 <textarea id="message" name="visitor_message" placeholder="Say whatever you want." required class="form-control"></textarea>
             </div>
 
-            <button type="button" class="btn btn-success">Send message</button>
+            <button type="submit" class="btn btn-success">Send message</button>
         </div>
     </div>
 </form>

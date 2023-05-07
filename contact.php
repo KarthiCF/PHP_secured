@@ -1,5 +1,6 @@
 
 <?php
+
 if($_POST){
     $visitor_name = "";
     $visitor_email = "";
@@ -7,6 +8,11 @@ if($_POST){
     $concerned_department = "";
     $visitor_message = "";
     $email_body = "<div>";
+    $recipient = "";
+
+ 
+    
+
 
     if(isset($_POST['visitor_name'])){
         $visitor_name = filter_var($_POST['visitor_name'], FILTER_SANITIZE_STRING);//The function filter_var() used to sanitize the input to avoid SQL injection attacks
@@ -47,7 +53,7 @@ if($_POST){
 };
 
     if($concerned_department == "marketing"){
-        $recipient = "marketing.cf.com";
+        $recipient = "cyberfactory1024@gmail.com";
     }
     elseif($concerned_department == "billing"){
         $recipient = "billing.cf.com";
@@ -76,3 +82,5 @@ if($_POST){
 }
 
 ?>
+
+<!-- -->
