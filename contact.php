@@ -7,6 +7,18 @@ if($_POST){
     $visitor_message = "";
     $email_body = "<div>";
     $recipient = "";
+    $generated_captcha = "";
+    $entered_captcha = "";
+ 
+
+    // CAPTCHA verification
+    $generated_captcha = $_POST['generated_captcha'];
+    $entered_captcha = $_POST['check_captcha'];
+
+    if ($generated_captcha !== $entered_captcha) {
+        echo "<p>Invalid captcha. Please try again.</p>";
+        exit;
+    }
 
 
     if(isset($_POST['visitor_name'])){
@@ -48,7 +60,7 @@ if($_POST){
 };
 
     if($concerned_department == "marketing"){
-        $recipient = "cyberfactory1024@gmail.com";
+        $recipient = "marketing.cf.com";
     }
     elseif($concerned_department == "billing"){
         $recipient = "billing.cf.com";
@@ -77,5 +89,4 @@ if($_POST){
 }
 
 ?>
-
 

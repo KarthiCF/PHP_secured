@@ -24,6 +24,8 @@ $captchaString = secure_captcha($captchaCharacters, $stringLength);
 
 
 
+
+
 <!DOCTYPE html>
 
 <html>
@@ -38,7 +40,7 @@ $captchaString = secure_captcha($captchaCharacters, $stringLength);
     <title>Log in</title>
 </head>
 <body>
-    <div class=" genc">
+    <div class=" gencontainer">
     <h3 class="heading my-3" style="text-align: center;">Contact Here</h3>
     <form action="contact.php" method="post" id="contacting_form" class=" mt-5">
     <div class="row justify-content-center">
@@ -74,27 +76,33 @@ $captchaString = secure_captcha($captchaCharacters, $stringLength);
                 <textarea id="message" name="visitor_message" placeholder="Say whatever you want." required class="form-control"></textarea>
             </div>
 
-            <div class="form-group my-3">
-                <label for="captcha">Please enter the captcha to prove that you are not a robot.</label>
-                <div class="form-row row">
-                    <div class="form-group col">
-                        <input type="text" class="form-control" id="capt" value="<?php echo $captchaString; ?>" readonly>
-                    </div>
-                    <div class="form-group col">
-                        <input type="text" class="form-control" id="enterCap">
-                    </div>
+          
+                <div class="form-group my-3">
+                    <label for="captcha">Please enter the captcha to prove that you are not a robot.</label>
+                    <div class="form-row row">
+                        <div class="form-group col">
+                            <input type="text" name="generated_captcha" class="form-control" id="capt" value="<?php echo $captchaString; ?>" readonly>
+                        </div>
+                        <div class="form-group col">
+                            <input type="text" name="check_captcha" class="form-control" id="enterCap" >
+                        </div> 
 
+                    </div>
                 </div>
-            </div>
+    
+
 
             <button type="submit" class="btn btn-success">Send message</button>
         </div>
     </div>
 </form>
     </div>
-    
+
 </body>
 </html>
+
+
+
 
 
 
