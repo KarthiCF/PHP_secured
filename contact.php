@@ -1,92 +1,113 @@
 <?php
-if($_POST){
-    $visitor_name = "";
-    $visitor_email = "";
-    $email_title = "";
-    $concerned_department = "";
-    $visitor_message = "";
-    $email_body = "<div>";
-    $recipient = "";
-    $generated_captcha = "";
-    $entered_captcha = "";
+$captchaCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
  
-
-    // CAPTCHA verification
-    $generated_captcha = $_POST['generated_captcha'];
-    $entered_captcha = $_POST['check_captcha'];
-
-    if ($generated_captcha !== $entered_captcha) {
-        echo "<p>Invalid captcha. Please try again.</p>";
-        exit;
+function secure_captcha($input, $strength = 5, $secure = true) {
+    $inputLength = strlen($input);
+    $randomString = '';
+    for($i = 0; $i < $strength; $i++) {
+        if($secure) {
+            $randomCharacter = $input[random_int(0, $inputLength - 1)];
+        } else {
+            $randomCharacter = $input[mt_rand(0, $inputLength - 1)];
+        }
+        $randomString .= $randomCharacter;
     }
-
-
-    if(isset($_POST['visitor_name'])){
-        $visitor_name = filter_var($_POST['visitor_name'], FILTER_SANITIZE_STRING);//The function filter_var() used to sanitize the input to avoid SQL injection attacks
-        $email_body .= "<div> 
-        <label><b>Visitor Name:</b></label>&nbsp;<span>".$visitor_name."</span> 
-        </div>";
-    }
-
-    if(isset($_POST['visitor_email'])){
-        $visitor_email = str_replace(array("\r", "\n", "%0a", "%0d"), '', $_POST['visitor_email']); //To replace the new line or carriage return to empty string
-        $visitor_email = filter_var($_POST['visitor_email'], FILTER_SANITIZE_STRING);
-        $email_body .= "<div> 
-        <label><b>Visitor Email:</b></label>&nbsp;<span>".$visitor_email."</span> 
-        </div>";
-    }
-
-    if(isset($_POST['email_title'])) {
-        $email_title = filter_var($_POST['email_title'], FILTER_SANITIZE_STRING);
-        $email_body .= "<div> 
-        <label><b>Reason For Contacting Us:</b></label>&nbsp;<span>".$email_title."</span> 
-        </div>";
-    }
-
-    if(isset($_POST['concerned_department'])) {
-        $concerned_department = filter_var($_POST['concerned_department'], FILTER_SANITIZE_STRING);
-        $email_body .= "<div> 
-        <label><b>Concerned Department:</b></label>&nbsp;<span>".$concerned_department."</span> 
-        </div>";
-    }
-
-    if(isset($_POST['visitor_message'])) {
-        $visitor_message = htmlspecialchars($_POST['visitor_message']);
-        $email_body .= "<div> 
-        <label><b>Visitor Message:</b></label> 
-        <div>".$visitor_message."</div> 
-        </div>";
-
-};
-
-    if($concerned_department == "marketing"){
-        $recipient = "marketing.cf.com";
-    }
-    elseif($concerned_department == "billing"){
-        $recipient = "billing.cf.com";
-    }
-    elseif($concerned_department == "technical_support"){
-        $recipient = "tech.support.cf.com";
-    }
-    elseif($concerned_department == "other_queries"){
-        $recipient = "queries.cf.com";
-    }
-
-    $email_body .= "</div>";
-
-    $headers = 'MIME-Version: 3.0.0' . "\r\n"
-    .'Content-type: text/html; charset=utf-8'."\r\n"
-    .'From:'.$visitor_email."\r\n";
-
-    if(mail($recipient, $email_title, $email_body, $headers)){
-        echo "<p>Dear $visitor_name, Thank you for contacting us! You'll get a reply from us within two business days. </p>";
-    }else{
-        echo "<p>We are sorry for the inconvinience caused</p>";
-    }
-
-}else{
-    echo "<p>Something went wrong!</p>";
+ 
+    return $randomString;
+    
 }
 
+$stringLength = 6;
+$captchaString = secure_captcha($captchaCharacters, $stringLength);
+
 ?>
+
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Log in</title>
+</head>
+<body>
+    <div class=" gencontainer">
+    <h3 class="heading my-3" style="text-align: center;">Contact Here</h3>
+    <form action="back.php" method="post" id="contacting_form" class=" mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group my-3">   
+                <label for="name">Name</label>
+                <input type="text" id="name" name="visitor_name" placeholder="Timothy Dalton" pattern="[A-Za-z]{2,30}" required class="form-control">
+            </div>
+
+            <div class="form-group my-3">
+                <label for="email">Email</label>
+                <input type="email" name="visitor_email" id="email" required class="form-control">
+            </div>
+
+            <div class="form-group my-3">
+                <label for="department_selection">Choose Department</label>
+                <select name="department_selection" id="concerned_department" required class="form-control">
+                    <option value="">Select Department</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="billing">Billing</option>
+                    <option value="technical_support">Technical support</option>
+                    <option value="other_queries">Other queries</option>
+                </select>
+            </div>
+            
+            <div class="form-group my-3">
+                <label for="title">Reason For Contacting Us</label>
+                <input type="text" id="title" name="email_title" required placeholder="Unable to buy the voucher" pattern="[A-Za-z0-9\s]{8,60}" class="form-control">
+            </div>
+
+            <div class="form-group my-3">
+                <label for="message">Write your message</label>
+                <textarea id="message" name="visitor_message" placeholder="Say whatever you want." required class="form-control"></textarea>
+            </div>
+
+          
+                <div class="form-group my-3">
+                    <label for="captcha">Please enter the captcha to prove that you are not a robot.</label>
+                    <div class="form-row row">
+                        <div class="form-group col">
+                            <input type="text" name="generated_captcha" class="form-control" id="capt" value="<?php echo $captchaString; ?>" readonly>
+                        </div>
+                        <div class="form-group col">
+                            <input type="text" name="check_captcha" class="form-control" id="enterCap" >
+                        </div> 
+
+                    </div>
+                </div>
+    
+
+
+            <button type="submit" class="btn btn-success">Send message</button>
+        </div>
+    </div>
+</form>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
 
