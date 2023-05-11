@@ -12,8 +12,9 @@
   height: 200px;
   margin: 40px;
   padding: 20px;
-  background-color: #192362;
+  background-color: #575b72;
   display: flex;
+  border-radius: 5px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -210,8 +211,11 @@
   {
     display:block;
     margin-right:0;
-    font-weight:600
+    font-weight:600s
   }
 }
 
+#login_texts{
+  color: #dfd7d7;
 
+}
