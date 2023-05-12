@@ -1,4 +1,40 @@
+body{
+  background-color: rgb(32,32,32);
+}
+.form-label{
+  color: #DC4C64;
+}
+.form-control{
+  background-color: #9FA6B2;
+}
+.submit-button{
+text-align: center;
+margin: 0 auto;
+display: flex;
+justify-content: center;
 
+}
+.form-heading{
+
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.form-head{
+color: #DC4C64;
+display: flex;
+justify-content: center;
+}
+.form-label{
+  color: #DC4C64;
+}
+.form-control{
+  background-color: #9FA6B2;
+}
+.signup_head{
+  color: #DC4C64;
+}
     
 
 .flex-container {
