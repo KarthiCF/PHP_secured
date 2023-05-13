@@ -3,6 +3,7 @@ body{
 }
 .form-label{
   color: #DC4C64;
+ 
 }
 .form-control{
   background-color: #9FA6B2;
@@ -75,6 +76,7 @@ justify-content: center;
   padding: 20px;
   text-align: center;
 }
+
 
 
 

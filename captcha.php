@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Create a blank image with a specified width and height
 $width = 200;
 $height = 60;
@@ -12,6 +13,8 @@ imagefill($image, 0, 0, $backgroundColor);
 $stringLength = 6;
 $captchaCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0987654321';
 $randomString = secure_captcha($captchaCharacters, $stringLength);
+$_SESSION['captcha'] = $randomString;
+
 
 
 //lines
@@ -43,6 +46,7 @@ for ($i = 0; $i < 4000; $i++) {
 // Set the content type header and output the image
 header('Content-type: image/png');
 imagepng($image);
+
 
 // Free up memory
 imagedestroy($image);

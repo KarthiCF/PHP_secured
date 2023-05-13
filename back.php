@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if($_POST){
     $visitor_name = "";
     $visitor_email = "";
@@ -9,18 +11,16 @@ if($_POST){
     $recipient = "";
     $generated_captcha = "";
     $entered_captcha = "";
+    
  
 
-    // CAPTCHA verification
-    $generated_captcha = $_POST['generated_captcha'];
-    $entered_captcha = $_POST['check_captcha'];
-
-    if ($generated_captcha !== $entered_captcha) {
-        echo "<p>Invalid captcha. Please try again.</p>";
-        exit;
-    }
-
-
+    // // CAPTCHA verification
+    $generated_captcha = $_SESSION['captcha'];
+    $entered_captcha = $_POST['check_captcha']; //user entered captcha
+    // include 'captcha.php';
+    if ($generated_captcha === $entered_captcha) {
+        // echo "<p>Captcha correct.</p>";
+        
     if(isset($_POST['visitor_name'])){
         $visitor_name = filter_var($_POST['visitor_name'], FILTER_SANITIZE_STRING);//The function filter_var() used to sanitize the input to avoid SQL injection attacks
         $email_body .= "<div> 
@@ -57,7 +57,7 @@ if($_POST){
         <div>".$visitor_message."</div> 
         </div>";
 
-};
+}
 
     if($concerned_department == "marketing"){
         $recipient = "cyberfactory1024@gmail.com";
@@ -83,6 +83,13 @@ if($_POST){
     }else{
         echo "<p>We are sorry for the inconvinience caused</p>";
     }
+        
+    }else{
+        echo "<p>Invalid captcha. Please try again.</p>";
+        exit;
+    }
+
+
 
 }else{
     echo "<p>Something went wrong!</p>";
