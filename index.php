@@ -58,29 +58,29 @@
     </div>
 
 
-    <div class="flex-container">
+    <div class="flex-container ">
       <div class="flex-item">
         <div class="content">
-          <h3>Data Recovery</h3>
+          <h3>PC Building</h3>
         </div>
         <div class="hover-content">
-          <p>Content about Data Recovery goes here.</p>
+          <p>Content about PC Building </p>
         </div>
       </div>
       <div class="flex-item">
         <div class="content">
-          <h3>Hard Disk</h3>
+          <h3>Data recovery</h3>
         </div>
         <div class="hover-content">
-          <p>Content about Hard Disk goes here.</p>
+          <p>Content about Data recovery </p>
         </div>
       </div>
       <div class="flex-item">
         <div class="content">
-          <h3>Sales</h3>
+          <h3>Computer accessories</h3>
         </div>
         <div class="hover-content">
-          <p>Content about Sales goes here.</p>
+          <p>Content about computer accessories </p>
         </div>
       </div>
       <div class="flex-item">
@@ -88,24 +88,25 @@
           <h3>Computers</h3>
         </div>
         <div class="hover-content">
-          <p>Content about Computers goes here.</p>
+          <p>Content about Computers </p>
         </div>
       </div>
-      <div class="flex-item">
-        <div class="content">
-          <h3>Printers</h3>
-        </div>
-        <div class="hover-content">
-          <p>Content about Printers goes here.</p>
-        </div>
-      </div>
+
       <div class="flex-item">
         <div class="content">
           <h3>Laptops</h3>
         </div>
         <div class="hover-content">
-          <p>Content about Laptops goes here.</p>
+          <p>Content about Laptops </p>
         </div>    
+      </div>
+      <div class="flex-item">
+        <div class="content">
+          <h3>OSes</h3>
+        </div>
+        <div class="hover-content">
+          <p>Content about OSes</p>
+        </div>
       </div>
 </div>
 </section>

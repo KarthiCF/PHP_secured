@@ -42,6 +42,8 @@ justify-content: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 20px;
+
 }
 
 .flex-item {
@@ -60,14 +62,14 @@ justify-content: center;
 }
 
 .flex-item:hover {
-  background-color: #7e8897;
+  background-color: #287ddfb5;
 }
 
-.flex-item:hover .content {
+.flex-item:hover.content {
   display: none;
 }
 
-.flex-item .content {
+.flex-item.content {
   display: block;
 }
 
@@ -124,13 +126,13 @@ justify-content: center;
 {
   padding-left:0;
   list-style:none;
-  color: #667cab;
+  color: #287ddfb5;
 
 }
 .footer-links li
 {
   display:block;
-  color: #667cab;
+  color: #456cc1;
 }
 .footer-links a
 {
