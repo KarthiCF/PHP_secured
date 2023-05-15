@@ -10,14 +10,10 @@
     <title>Sign up</title>
     <!-- <link rel="icon" href=""> -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- <style>
-      body{
-        background-color: rgb(32,32,32);
-      }
+    <script defer src="index.js"></script>
     
 
-    </style> -->
+
   </head>
 
 
@@ -33,20 +29,18 @@
         </div>
         
         <div class="p-1 container-sm">
-            <form class="needs-validation mt-2 p-4 signup_form"   style="max-width: 600px; margin: auto;" id="form" action="">
+            <form class="needs-validation mt-2 p-4 signup_form" novalidate  style="max-width: 600px; margin: auto;" id="form" action="index.php">
 
               <div class="mt-3">
-                <!--First name-->
-                <label class="form-label " for="validationCustom01">First name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+                <!--Name-->
+                <label class="form-label" for="validationCustom01">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name" required>
+                <div class="invalid-feedback">
+                  Name required
+                </div>
               </div>
               
-              <!--Last name-->
-              <div class="mt-3">
-                <label class="form-label " for="validationCustom02">Last name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Last name"  required>
-               
-              </div>
+
 
               <!--username-->
               <div class="mt-3">
@@ -56,6 +50,9 @@
                     <span class="input-group-text bg-secondary" id="inputGroupPrepend">@</span>
                   </div>
                   <input type="text" class="form-control" id="userName" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                  <div class="invalid-feedback">
+                  Username required
+                </div>
                 </div>
               </div>
 
@@ -63,12 +60,18 @@
               <div class="mt-3">
                 <label class="form-label " for="validationCustom03">Phone</label>
                 <input type="tel" class="form-control" id="phone" name="phone"  placeholder="91 1234567890" pattern="[0-9]{2} [0-9]{10}" required>
+                <div class="invalid-feedback">
+                  Phone number required
+                </div>
               </div>
 
               <!--email-->
               <div class="mt-3">
                 <label class="form-label " for="validationCustom03">Email address</label>
                 <input type="email" class="form-control" id="emailSignin" placeholder="Your email address" required>
+                <div class="invalid-feedback">
+                  Email required
+                </div>
               </div>
 
               
@@ -76,14 +79,26 @@
               <!--Password-->
               <div class="mt-3">
                 <label class="form-label " for="validationCustom04">Password</label>
-                <input type="password" class="form-control" id="passwordSignin" placeholder="Set password"   required>
+                <input type="password" class="form-control" id="passwordSignin" onkeyup="passLength()" placeholder="Set password"   required>
+                <div class="invalid-feedback" >
+                  Please enter a password.
+                </div> 
+                <div class="alert alert-danger mt-2 px-1"  id="e2" role="alert" style="display: none;" >
+                  <p><small>Password must contain at least 8 or more characters</small></p>
+                </div>
 
               </div>
 
               <!--Confirm password-->
               <div class="mt-3">
                 <label class="form-label " for="validationCustom05">Confirm password</label>
-                <input type="password" class="form-control" id="confirmPasswordSignin" placeholder="Confirm password" required>
+                <input type="password" class="form-control" id="confirmPasswordSignin" onkeyup="passCheck()" placeholder="Confirm password" required>
+                <div class="invalid-feedback">
+                    Please confirm password.
+                </div>
+                <div class="alert alert-danger mt-2 px-1"  id="e1" role="alert" style="display: none;" >
+                    <p><small>Password doesn't match</small></p>
+                </div>
 
               </div>
               
@@ -94,15 +109,19 @@
                   <label class="form-label text-secondary " class="form-check-label" for="invalidCheck">
                     Agree to <a class="text-secondary" href="#"><b>Terms and Conditions</b> </a>& <a class="text-secondary" href="#"><b>Privacy Policy</b></a>
                   </label>
+                  <div class="invalid-feedback">
+                      You must agree before submitting.
+                    </div>
                   
                 </div>
               </div>
 
                
 
-                <!--button-->
-                <div class="text-center">
-                    <button class="btn btn-danger text-center" onclick="signupAlert()" type="submit" id="signupButton" ><B>Signup</B></button>
+             
+                 <!--button-->
+                 <div class="text-center">
+                    <button class="btn btn-danger text-center"  type="submit" id="signupButton" >Sign up</button>
                     
                 </div>
 
@@ -125,17 +144,25 @@
     
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script>
-      function signupAlert(){
-        alert("You have successsfully created your account")
-      }
-   
-    //To clear the input fields on refreshing the page
-        window.onload = function() {
-        var form = document.getElementById("signup_form");
-        form.reset();
-    };
+
+<script>
+  
+  //To clear the input fields on refreshing the page
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('form');
+    form.reset();
+  });
+
+
+
+  
+  
+  
+ 
 </script>
+
+
+
   </body>
 
   

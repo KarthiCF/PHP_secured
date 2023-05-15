@@ -11,11 +11,7 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
-  <style>
-    body{
-       background-color: rgb(32,32,32);
-    }
-  </style>
+
 
 </head>
 
