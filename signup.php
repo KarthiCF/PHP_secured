@@ -1,3 +1,24 @@
+<?php
+if(isset($_POST['submit'])){
+  // echo "<script>alert('completed')</script>";
+  $secret = "6Le_hiEmAAAAAPxnFt6f2RV126n5HZZqzcE5q1QP";
+  $response = $_POST['g-recaptcha-response'];
+  $remoteIP = $_SERVER['REMOTE_ADDR'];
+  $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteIP";
+  $get_data = file_get_contents($url);
+  $row = json_decode($get_data, true);
+
+  if($row['success']=="true"){
+    echo "<script>alert('you are human')</script>";
+  }else{
+    echo "<script>alert('you are robot')</script>";
+  }
+}
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,6 +29,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <title>Sign up</title>
+    <!-- recaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <!-- <link rel="icon" href=""> -->
     <link rel="stylesheet" href="style.css">
     <script defer src="index.js"></script>
@@ -29,7 +53,7 @@
         </div>
         
         <div class="p-1 container-sm">
-            <form class="needs-validation mt-2 p-4 signup_form" novalidate  style="max-width: 600px; margin: auto;" id="form" action="index.php">
+            <form method="post" class="needs-validation mt-2 p-4 signup_form" novalidate  style="max-width: 600px; margin: auto;" id="form" action="">
 
               <div class="mt-3">
                 <!--Name-->
@@ -112,7 +136,12 @@
                   <div class="invalid-feedback">
                       You must agree before submitting.
                     </div>
-                  
+                </div>
+              </div>
+
+              <div class="container py-3">
+                <div class="row">
+                <div class="g-recaptcha" data-sitekey="6Le_hiEmAAAAAGh7hSaht5XBOzSW1LKP-PfXax5i"></div>
                 </div>
               </div>
 
@@ -121,8 +150,7 @@
              
                  <!--button-->
                  <div class="text-center">
-                    <button class="btn btn-danger text-center"  type="submit" id="signupButton" >Sign up</button>
-                    
+                    <button class="btn btn-primary text-center" name="submit" type="submit" id="signupButton" >Sign up</button>
                 </div>
 
                 
