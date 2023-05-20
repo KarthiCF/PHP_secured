@@ -1,13 +1,19 @@
 body{
-  background-color: rgb(32,32,32);
+  background-color: rgba(24, 25, 30, 0.1);
 }
 .form-label{
-  color: #4c77dc;
+  color: #2b92d2;
  
 }
 .form-control{
   background-color: #9FA6B2;
+  
+  
 }
+.navbar{
+  background-color: black;
+}
+
 .submit-button{
 text-align: center;
 margin: 0 auto;
@@ -23,7 +29,7 @@ justify-content: center;
 }
 
 .form-head{
-color: #4c77dc;
+color: #ffffff;
 display: flex;
 justify-content: center;
 }
@@ -32,7 +38,7 @@ justify-content: center;
   background-color: #9FA6B2;
 }
 .signup_head{
-  color: #4c77dc;
+  color: #4cc2dc;
 }
     
 

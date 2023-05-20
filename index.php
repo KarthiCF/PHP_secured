@@ -17,9 +17,15 @@
 
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Hippo Computer Services</a>
+
+
+  <section class="main " style="background-image: linear-gradient(rgba(4, 9, 30, 0.9), rgba(4, 9, 30, 0.9)),
+    url(images/a0.jpg); height: 100vh; background-size:cover; width: 100%; background-position: 50% 50%; background-attachment: fixed;">
+
+      <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black ">
+    <img src="images\logo.png" alt="" class="logo">
+    <!-- <a class="navbar-brand" href="#">Hippo Computer Services</a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,28 +35,27 @@
         <li class="nav-item active">
           <a class="nav-link" href="#">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active ">
           <a class="nav-link" href="services.php">Services</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="about.php">About</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="contact.php">Contact</a>
         </li>
         <li>
-        <a href="login.php" class="nav-link"><button class="btn btn-danger">Login</button></a>
+        <a href="login.php" class="nav-link"><button class="btn btn-primary">Login</button></a>
         </li>
       </ul>
     </div>
   </nav>
-
-  <section class="main ">
   <!-- Page content -->
   <div class="container-fluid mt-4" >
-    <div class="index_title p-5" style="background-color: steelblue ">
-    <h1>Welcome to Hippo Computer Services</h1>
-    <p>Offering professional computer repair and IT services.</p>
+
+    <div class="index_title p-5" style="">
+    <!-- <h1>Welcome to </h1>
+    <p>Offering professional computer repair and IT services.</p> -->
     </div>
 
 
@@ -88,22 +93,7 @@
         </div>
       </div>
 
-      <div class="flex-item">
-        <div class="content">
-          <h3>Laptops</h3>
-        </div>
-        <div class="hover-content">
-          <p>Content about Laptops </p>
-        </div>    
-      </div>
-      <div class="flex-item">
-        <div class="content">
-          <h3>OSes</h3>
-        </div>
-        <div class="hover-content">
-          <p>Content about OSes</p>
-        </div>
-      </div>
+
 </div>
 </section>
 

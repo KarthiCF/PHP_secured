@@ -35,6 +35,8 @@ if(isset($_POST['submit'])){
     <!-- <link rel="icon" href=""> -->
     <link rel="stylesheet" href="style.css">
     <script defer src="index.js"></script>
+
+    
     
 
 
@@ -43,7 +45,7 @@ if(isset($_POST['submit'])){
 
   <body>
     <section class="main">
-    <div class="container-sm py-4 px-5 ">
+    <div class="container-sm py-2 ">
 
         <div class="text-center py-1 ">
            
@@ -55,80 +57,85 @@ if(isset($_POST['submit'])){
         <div class="p-1 container-sm">
             <form method="post" class="needs-validation mt-2 p-4 signup_form" novalidate  style="max-width: 600px; margin: auto;" id="form" action="">
 
-              <div class="mt-3">
-                <!--Name-->
-                <label class="form-label" for="validationCustom01">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Name" required>
-                <div class="invalid-feedback">
-                  Name required
-                </div>
-              </div>
-              
-
-
-              <!--username-->
-              <div class="mt-3">
-                <label class="form-label " for="validationCustomUsername">Username</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-secondary" id="inputGroupPrepend">@</span>
-                  </div>
-                  <input type="text" class="form-control" id="userName" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+              <div class="form-group row py-1">
+                <div class="form-group col ">
+                  <!--Name-->
+                  <label class="form-label" for="validationCustom01">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Name" required>
                   <div class="invalid-feedback">
-                  Username required
+                    Name required
+                  </div>
                 </div>
+                
+
+
+                <!--username-->
+                <div class="form-group col ">
+                  <label class="form-label " for="validationCustomUsername">Username</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-secondary" id="inputGroupPrepend">@</span>
+                    </div>
+                    <input type="text" class="form-control" id="userName" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                    <div class="invalid-feedback">
+                    Username required
+                  </div>
+                  </div>
                 </div>
               </div>
 
-              <!--Phone number-->
-              <div class="mt-3">
-                <label class="form-label " for="validationCustom03">Phone</label>
-                <input type="tel" class="form-control" id="phone" name="phone"  placeholder="91 1234567890" pattern="[0-9]{2} [0-9]{10}" required>
-                <div class="invalid-feedback">
-                  Phone number required
+              <div class="form-group row py-1">
+                <!--Phone number-->
+                <div class="form-group col">
+                  <label class="form-label " for="validationCustom03">Phone</label>
+                  <input type="tel" class="form-control" id="phone" name="phone"  placeholder="91 1234567890" pattern="[0-9]{2} [0-9]{10}" required>
+                  <div class="invalid-feedback">
+                    Phone number required
+                  </div>
+                </div>
+
+                <!--email-->
+                <div class="form-group col ">
+                  <label class="form-label " for="validationCustom03">Email address</label>
+                  <input type="email" class="form-control" id="emailSignin" placeholder="Your email address" required>
+                  <div class="invalid-feedback">
+                    Email required
+                  </div>
                 </div>
               </div>
-
-              <!--email-->
-              <div class="mt-3">
-                <label class="form-label " for="validationCustom03">Email address</label>
-                <input type="email" class="form-control" id="emailSignin" placeholder="Your email address" required>
-                <div class="invalid-feedback">
-                  Email required
-                </div>
-              </div>
-
               
-            
-              <!--Password-->
-              <div class="mt-3">
-                <label class="form-label " for="validationCustom04">Password</label>
-                <input type="password" class="form-control" id="passwordSignin" onkeyup="passLength()" placeholder="Set password"   required>
-                <div class="invalid-feedback" >
-                  Please enter a password.
-                </div> 
-                <div class="alert alert-danger mt-2 px-1"  id="e2" role="alert" style="display: none;" >
-                  <p><small>Password must contain at least 8 or more characters</small></p>
+
+              <div class="form-gropu row py-1">
+                <!--Password-->
+                <div class="form-group col">
+                  <label class="form-label " for="validationCustom04">Password</label>
+                  <input type="password" class="form-control" id="passwordSignin" onkeyup="passLength()" placeholder="Set password"   required>
+                  <div class="invalid-feedback" >
+                    Please enter a password.
+                  </div> 
+                  <div class="alert alert-danger mt-2 px-1"  id="e2" role="alert" style="display: none;" >
+                    <p><small>Password must contain at least 8 or more characters</small></p>
+                  </div>
+
                 </div>
 
-              </div>
+                <!--Confirm password-->
+                <div class="form-group col">
+                  <label class="form-label " for="validationCustom05">Confirm password</label>
+                  <input type="password" class="form-control" id="confirmPasswordSignin" onkeyup="passCheck()" placeholder="Confirm password" required>
+                  <div class="invalid-feedback">
+                      Please confirm password.
+                  </div>
+                  <div class="alert alert-danger mt-2 px-1"  id="e1" role="alert" style="display: none;" >
+                      <p><small>Password doesn't match</small></p>
+                  </div>
 
-              <!--Confirm password-->
-              <div class="mt-3">
-                <label class="form-label " for="validationCustom05">Confirm password</label>
-                <input type="password" class="form-control" id="confirmPasswordSignin" onkeyup="passCheck()" placeholder="Confirm password" required>
-                <div class="invalid-feedback">
-                    Please confirm password.
                 </div>
-                <div class="alert alert-danger mt-2 px-1"  id="e1" role="alert" style="display: none;" >
-                    <p><small>Password doesn't match</small></p>
-                </div>
-
               </div>
               
                 
-              <div class="form-group">
-                <div class="form-check py-4">
+              <div class="form-group py-1">
+                <div class="form-check ">
                   <input class="form-check-input " type="checkbox" value="" id="invalidCheck" required>
                   <label class="form-label text-secondary " class="form-check-label" for="invalidCheck">
                     Agree to <a class="text-secondary" href="#"><b>Terms and Conditions</b> </a>& <a class="text-secondary" href="#"><b>Privacy Policy</b></a>

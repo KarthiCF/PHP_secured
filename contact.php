@@ -82,13 +82,13 @@
 
                     <!-- Refresh icon -->
                     <div class="form-group col py-2 mt-4">
-                        <button class="refresh-icon" id="refresh-captcha"style=" cursor: pointer; background-color: rgb(32,32,32); border-color: rgb(32,32,32);" type="button"><i class="fa-sharp fa-solid fa-arrow-rotate-right fa-xl" style="color: #e64747;"  style=" cursor: pointer;"></i></button>
+                        <button class="refresh-icon" id="refresh-captcha"style=" cursor: pointer; background-color: rgb(32,32,32); border-color: rgb(32,32,32);" type="button"><i class="fa-sharp fa-solid fa-arrow-rotate-right fa-xl" style="color: #1db9d4;"  style=" cursor: pointer;"></i></button>
                     </div> 
                 </div>
                 
                 <!-- Submit button -->
                 <div class="submit-button">
-                    <button type="submit" class="btn btn-danger mt-4">Send message</button>
+                    <button type="submit" class="btn btn-primary mt-4">Send message</button>
                 </div>
             </div>
         </div>

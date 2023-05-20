@@ -33,7 +33,7 @@
         <input type="password" class="form-control" id="exampleInputPassword1">
       </div>
       <div class="submit-button p-4">
-        <button type="submit" onclick="loginAlert()" class="btn btn-danger "><b>Login</b></button>
+        <button type="submit" onclick="loginAlert()" class="btn btn-primary "><b>Login</b></button>
       </div>
 
                       
