@@ -44,12 +44,13 @@ if(isset($_POST['submit'])){
 
 
   <body>
-    <section class="main">
+    <section class="sign_up" style="background-image: linear-gradient(rgba(4, 9, 30, 0.9), rgba(4, 9, 30, 0.9)),
+    url(images/f.jpg); height: 100vh; background-size:cover; width: 100%; background-position: 50% 50%; background-attachment: fixed;">
     <div class="container-sm py-2 ">
 
         <div class="text-center py-1 ">
            
-            <p class="text-center text-secondary mt-2 mb-1 mx-4">Thank you for choosing HIPPO COMPUTERS</p>
+            <p class="text-center text-secondary mt-2 mb-1 mx-4">Thank you for choosing <strong>TRESPASS</strong></p>
             <h2 class="signup_head">Signup here...</h2>
             
         </div>
@@ -163,7 +164,7 @@ if(isset($_POST['submit'])){
                 
                 <div class="form-group text-center ">                  
                     <hr style="color: rgb(153, 153, 153); height: 6px; opacity: 100%;">
-                    <p class="text-secondary text-center mt-3 px-3">Already an user of &nbsp;<b>HIPPO COMPUTERS</b> ? <a class="text-secondary" href="login.php"><b>Login here</b></a></p> 
+                    <p class="text-secondary text-center mt-3 px-3">Already an user of &nbsp;<b>TRESPASS</b> ? <a class="text-secondary" href="login.php"><b>Login here</b></a></p> 
                     
                 </div>
                

@@ -1,5 +1,5 @@
 body{
-  background-color: rgba(24, 25, 30, 0.1);
+  background-color: rgb(24, 25, 30);
 }
 .form-label{
   color: #2b92d2;
@@ -11,7 +11,21 @@ body{
   
 }
 .navbar{
-  background-color: black;
+  background-color: #090222;
+}
+.nav-link{
+  color: red;
+}
+.nav-link:hover{
+  color: #484848;
+}
+
+.comvo_button{
+  text-decoration: none;
+}
+.convo_button:hover{
+  text-decoration: none; 
+  color: inherit; 
 }
 
 .submit-button{
@@ -23,13 +37,13 @@ justify-content: center;
 }
 .form-heading{
 
-  color: white;
+  color: RED;
   display: flex;
   justify-content: center;
 }
 
 .form-head{
-color: #ffffff;
+color: RED;
 display: flex;
 justify-content: center;
 }
@@ -37,7 +51,7 @@ justify-content: center;
 .form-control{
   background-color: #9FA6B2;
 }
-.signup_head{
+.signup_head, .login_head{
   color: #4cc2dc;
 }
     
@@ -92,7 +106,7 @@ justify-content: center;
 
 .site-footer
 {
-  background-color:#26272b;
+  background-color:#000000;
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
@@ -130,21 +144,22 @@ justify-content: center;
 {
   padding-left:0;
   list-style:none;
-  color: #287ddfb5;
+  color: grey;
 
 }
 .footer-links li
 {
   display:block;
-  color: #456cc1;
+  color: grey ;
 }
 .footer-links a
 {
-  color:#136885b7
+  color:#484848;
+  /* text-decoration: none; */
 }
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover
 {
-  color:#3366cc;
+  color:#ffffff;
   text-decoration:none;
 }
 .footer-links.inline li

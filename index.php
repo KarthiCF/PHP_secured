@@ -20,11 +20,11 @@
 
 
   <section class="main " style="background-image: linear-gradient(rgba(4, 9, 30, 0.9), rgba(4, 9, 30, 0.9)),
-    url(images/a0.jpg); height: 100vh; background-size:cover; width: 100%; background-position: 50% 50%; background-attachment: fixed;">
+    url(images/e.jpg); height: 100vh; background-size:cover; width: 100%; background-position: 50% 50%; background-attachment: fixed;">
 
       <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-black ">
-    <img src="images\logo.png" alt="" class="logo">
+    <img src="images\l.png" alt="" class="logo" style="height:auto; width:15%">
     <!-- <a class="navbar-brand" href="#">Hippo Computer Services</a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,97 +33,75 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="#">HOME</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="about.php">ABOUT</a>
         </li>
         <li class="nav-item active ">
-          <a class="nav-link" href="services.php">Services</a>
+          <a class="nav-link" href="">RED TEAM</a>
+        </li>
+        <li class="nav-item active ">
+          <a class="nav-link" href="">BLUE TEAM</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="about.php">About</a>
+          <a class="nav-link" href="contact.php">CONTACT</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="contact.php">Contact</a>
-        </li>
-        <li>
-        <a href="login.php" class="nav-link"><button class="btn btn-primary">Login</button></a>
+        <a href="login.php" class="nav-link">LOGIN</a>
         </li>
       </ul>
     </div>
   </nav>
-  <!-- Page content -->
-  <div class="container-fluid mt-4" >
 
-    <div class="index_title p-5" style="">
-    <!-- <h1>Welcome to </h1>
-    <p>Offering professional computer repair and IT services.</p> -->
+
+  <div class="container-fluid mt-5 py-5 mx-5">
+    <div class="index_title p-2" style="">
+      <h1 class="index_quote" style="color: grey; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold; font-size: 54px;">"Fortify your Defenses,<br><br> 
+      &nbsp&nbspUnleash our Expertise"</h1>
     </div>
+    <a href="contact.php" class="convo_button mt-5 mx-3 p-2" style="background-color: red; color: black; border-radius: 5px; display: inline-block; padding: 2px; font-weight: bold; border-color:black;">
+  Spark a conversation with us
+</a>
+
+  </div>
+
+    
 
 
-    <div class="flex-container ">
-      <div class="flex-item">
-        <div class="content">
-          <h3>PC Building</h3>
-        </div>
-        <div class="hover-content">
-          <p>Content about PC Building </p>
-        </div>
-      </div>
-      <div class="flex-item">
-        <div class="content">
-          <h3>Data recovery</h3>
-        </div>
-        <div class="hover-content">
-          <p>Content about Data recovery </p>
-        </div>
-      </div>
-      <div class="flex-item">
-        <div class="content">
-          <h3>Computer accessories</h3>
-        </div>
-        <div class="hover-content">
-          <p>Content about computer accessories </p>
-        </div>
-      </div>
-      <div class="flex-item">
-        <div class="content">
-          <h3>Computers</h3>
-        </div>
-        <div class="hover-content">
-          <p>Content about Computers </p>
-        </div>
-      </div>
-
-
-</div>
 </section>
 
   <footer class="site-footer">
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-12 col-md-6">
-            <h6>About</h6>
-            <p class="text-justify">At Hippo Computer Service, we understand the importance of technology in today's fast-paced world. Whether you're a business owner or an individual, we are here to provide you with top-notch computer services that meet your unique requirements. Our services cover everything from computer repairs and troubleshooting to software installations, virus removal, and data recovery. Our experienced technicians have a deep understanding of various operating systems and hardware components, allowing them to diagnose and resolve issues efficiently. We utilize the latest tools and techniques to ensure that your computer receives the best possible care.</p>
+          <h6 style="color:red"><strong>About</strong></h6>
+            <p class="text-justify">Welcome to TRESPASS, your trusted partner in comprehensive penetration testing and security solutions. With a team of seasoned experts, we specialize in securing organizations, red teaming, and blue teaming, ensuring the utmost protection for your critical assets. At TRESPASS, we understand that in today's digital landscape, security breaches can have devastating consequences. That's why we employ cutting-edge methodologies and advanced tools to identify vulnerabilities and fortify your defenses. Our holistic approach combines offensive and defensive strategies to provide a comprehensive assessment of your security posture.Partner with TRESPASS today and let us be your trusted ally in safeguarding your organization from cyber threats. Together, we can build a resilient security infrastructure that protects your valuable assets and preserves your reputation in an ever-evolving threat landscape.
+
+</p>
           </div>
 
           <div class="col-xs-6 col-md-3">
-            <h6>Categories</h6>
+          <h6 style="color:red"><strong>Categories</strong></h6>
             <ul class="footer-links">
-              <li class="footer-sites"><a href="#">Data recovery</a></li>
-              <li class="footer-sites"><a href="#">OS services</a></li>
-              <li class="footer-sites"><a href="#">Software installation</a></li>
-              <li class="footer-sites"><a href="#">Virus removal</a></li>
+              <li class="footer-sites"><a href="#">Pentesting</a></li>
+              <li class="footer-sites"><a href="#">Red Teaming</a></li>
+              <li class="footer-sites"><a href="#">Blue Teaming</a></li>
+              <li class="footer-sites"><a href="#">Auditing</a></li>
           
             </ul>
           </div>
 
           <div class="col-xs-6 col-md-3">
-            <h6>Quick Links</h6>
+            <h6 style="color:red"><strong>Quick Links</strong></h6>
             <ul class="footer-links">
               <li><a href="#">About Us</a></li>
               <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Contribute</a></li>
+              <li><a href="#">Red Team</a></li>
+              <li><a href="#">Blue Team</a></li>
+              <li><a href="#">Pricing</a></li>
               <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Sitemap</a></li>
+              
             </ul>
           </div>
         </div>
@@ -133,7 +111,7 @@
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
             <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by 
-         <a href="#">HIPPO COMPUTERS</a>.
+         <a href="#"><strong>TRESPASS</strong></a>.
             </p>
           </div>
 

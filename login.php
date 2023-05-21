@@ -14,13 +14,14 @@
     
   </head>
   <body>
-    <section class="login_section mt-5">
+    <section class="login_section mt-5" style="background-image: linear-gradient(rgba(4, 9, 30, 0.9), rgba(4, 9, 30, 0.9)),
+    url(images/a.jpg); height: 100vh; background-size:cover; width: 100%; background-position: 50% 50%; background-attachment: fixed;">
     <div class="mb-5">
-        <h1 class="form-heading">Welcome back to &nbsp;  <strong> HIPPO COMPUTERS</strong> </h1>
+        <h1 class="form-heading">Welcome back to &nbsp;  <strong> TRESPASS</strong> </h1>
       </div>
     <form class=" needs-validation mt-2 mb-4 p-4 " novalidate style="max-width: 480px; margin: auto;" id="form">
       <div class="mb-5">
-        <h2 class="form-head">Login here...</h2>
+        <h2 class="login_head">Login here...</h2>
       </div>
       <div class="mb-3 p-3">
         <label for="exampleInputEmail1" class="form-label" id="login_texts">Email address</label>
@@ -39,7 +40,7 @@
                       
       <div class="form-group text-center ">                  
 
-        <p class="text-secondary text-center mt-3 px-3">New to &nbsp;<b>HIPPO COMPUTERS</b> ? <a class="text-secondary" href="signup.php"><b>Signup here</b></a></p> 
+        <p class="text-secondary text-center mt-3 px-3">New to &nbsp;<b>TRESPASS</b> ? <a class="text-secondary" href="signup.php"><b>Signup here</b></a></p> 
     </div>  
       
     </form>

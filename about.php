@@ -8,17 +8,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container p-5">
-        <h2>A brief about HIPPO COMPUTERS</h2>
-        <p>At Hippo Computer Service, we understand the importance of technology in today's fast-paced world. Whether you're a business owner or an individual, we are here to provide you with top-notch computer services that meet your unique requirements. With a team of skilled professionals and a commitment to customer satisfaction, we offer a comprehensive range of services to keep your technology running smoothly.
+    <div class=" p-5" style="background-image: linear-gradient(rgba(4, 9, 30, 0.9), rgba(4, 9, 30, 0.9)), url(images/imf1.jpg); height: 100vh; background-size:cover; width: 100%; background-position: 50% 50%; background-attachment: fixed;">
+        <h2 style="color:red">A brief about <strong>TRESPASS</strong></h2>
+        <p class="text-justify" style="color:white">TRESPASS, a leading penetration testing company dedicated to securing organizations and providing comprehensive red teaming and blue teaming services. With our expertise and cutting-edge methodologies, we offer robust security solutions tailored to your specific needs.
 
-        Our services cover everything from computer repairs and troubleshooting to software installations, virus removal, and data recovery. Our experienced technicians have a deep understanding of various operating systems and hardware components, allowing them to diagnose and resolve issues efficiently. We utilize the latest tools and techniques to ensure that your computer receives the best possible care.
+In today's digital landscape, organizations face an ever-growing number of sophisticated cyber threats. At TRESPASS, we understand the importance of proactive defense measures. Our team of seasoned professionals specializes in penetration testing, a crucial aspect of protecting your critical assets.
 
-        We pride ourselves on our quick turnaround times and transparent pricing. We understand the frustration that comes with computer problems, so we strive to provide timely solutions without breaking the bank. Our technicians will keep you informed throughout the process, explaining the problem and presenting suitable options for repair or replacement.
+We offer a range of services designed to secure your organization from every angle. Our comprehensive approach includes red teaming, where we simulate real-world attacks to identify vulnerabilities in your infrastructure, applications, and personnel. By thinking like a malicious actor, we can help you strengthen your security controls and proactively address potential weaknesses.
 
-        Customer satisfaction is at the heart of everything we do. We believe in building long-term relationships with our clients by providing reliable and personalized service. Whether you need assistance with a single computer or require ongoing IT support for your business, Hippo Computer Service is here to help.
+Our blue teaming services focus on strengthening your organization's defense mechanisms. We work closely with your team to enhance your incident response capabilities, develop robust security policies, and provide ongoing monitoring. By collaborating with your internal resources, we ensure that your organization is well-prepared to detect, respond to, and mitigate cyber threats effectively.
 
-        Contact us today to experience the Hippo difference. Our friendly staff will be happy to answer your questions and schedule an appointment that fits your schedule. Trust Hippo Computer Service for all your technology needs – we'll have your devices up and running smoothly in no time!
+At TRESPASS, our team consists of highly skilled and certified professionals with extensive experience across various industries. We stay at the forefront of emerging threats and attack vectors, allowing us to offer cutting-edge solutions to our clients. Our expertise covers a wide range of areas, including network security, application security, social engineering, and physical security assessments.
+
+We approach every engagement with a commitment to confidentiality, integrity, and professionalism. We understand the sensitive nature of the information we handle and ensure that your data remains secure throughout the testing process. Our reports provide actionable insights and recommendations, enabling you to prioritize and address vulnerabilities effectively.
+
+By partnering with TRESPASS, you gain a trusted ally dedicated to safeguarding your organization from cyber threats. We strive to build long-term relationships with our clients, offering ongoing support and guidance to adapt to evolving security challenges. Our goal is to provide you with the peace of mind that comes from knowing your organization is well-protected and resilient against cyber attacks.
+
+Contact TRESPASS today to discuss your security needs and discover how our expert team can assist you. Together, we can build a solid security foundation, mitigate risks, and ensure the ongoing safety of your valuable assets.
 
 </p>
     </div>
