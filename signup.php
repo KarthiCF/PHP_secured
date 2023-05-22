@@ -1,3 +1,5 @@
+<?php include('connect.php') ?>
+
 <?php
 if(isset($_POST['submit'])){
   // echo "<script>alert('completed')</script>";
@@ -8,11 +10,11 @@ if(isset($_POST['submit'])){
   $get_data = file_get_contents($url);
   $row = json_decode($get_data, true);
 
-  if($row['success']=="true"){
-    echo "<script>alert('you are human')</script>";
-  }else{
-    echo "<script>alert('you are robot')</script>";
-  }
+  // if($row['success']=="true"){
+  //   echo "<script>alert('you are human')</script>";
+  // }else{
+  //   echo "<script>alert('you are robot')</script>";
+  // }
 }
 
 ?>
@@ -63,7 +65,7 @@ if(isset($_POST['submit'])){
                 <div class="form-group col ">
                   <!--Company-->
                   <label class="form-label text-info" for="validationCustom01">Company name</label>
-                  <input type="text" class="form-control" id="name" placeholder="Company" required>
+                  <input type="text" class="form-control" id="name" placeholder="Company" required name="company_name">
                   <div class="invalid-feedback">
                     Company name required
                   </div>
@@ -73,7 +75,7 @@ if(isset($_POST['submit'])){
                 <!--email-->
                 <div class="form-group col ">
                   <label class="form-label text-info" for="validationCustom03">Email address</label>
-                  <input type="email" class="form-control" id="emailSignin" placeholder="Your email address" required>
+                  <input type="email" class="form-control" id="emailSignin" placeholder="Your email address" required name="company_email">
                   <div class="invalid-feedback">
                     Email required
                   </div>
@@ -90,7 +92,7 @@ if(isset($_POST['submit'])){
                 <!--Password-->
                 <div class="form-group col">
                   <label class="form-label text-info" for="validationCustom04">Password</label>
-                  <input type="password" class="form-control" id="passwordSignin" onkeyup="passLength()" placeholder="Set password"   required>
+                  <input type="password" name="company_password" class="form-control" id="passwordSignin" onkeyup="passLength()" placeholder="Set password"   required   >
                   <div class="invalid-feedback" >
                     Please enter a password.
                   </div> 
@@ -103,7 +105,7 @@ if(isset($_POST['submit'])){
                 <!--Confirm password-->
                 <div class="form-group col">
                   <label class="form-label text-info" for="validationCustom05">Confirm password</label>
-                  <input type="password" class="form-control" id="confirmPasswordSignin" onkeyup="passCheck()" placeholder="Confirm password" required>
+                  <input type="password" name="confirm_password" class="form-control" id="confirmPasswordSignin" onkeyup="passCheck()" placeholder="Confirm password" required>
                   <div class="invalid-feedback">
                       Please confirm password.
                   </div>
@@ -184,3 +186,26 @@ if(isset($_POST['submit'])){
   
 
 </html>
+
+
+
+<?php
+if(isset($_POST['submit'])){
+  $companyName = $_POST['company_name'];
+  $companyEmail = $_POST['company_email'];
+  $companyPassword = $_POST['company_password'];
+  $confirmPassword = $_POST['confirm_password'];
+
+  //query
+  $insertQuery = "INSERT INTO `register_details`(`company_name`, `email_id`, `company_password`) VALUES ('$companyName','$companyEmail','$companyPassword')";
+
+  $sqlExecute = mysqli_query($con, $insertQuery);
+
+  if($sqlExecute){
+    echo "<script>alert('updated')</script>";
+  }else{
+    die(mysqli_errno($con));
+  }
+
+}
+?>
