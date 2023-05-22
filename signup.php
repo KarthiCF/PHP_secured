@@ -192,6 +192,9 @@ if(isset($_POST['submit'])){
   if($rowCount > 0){
     echo "<script>alert('Email already exist')</script>";
   }
+  elseif( $companyPassword != $confirmPassword){
+    echo "<script>alert('Password doesn't match')</script>";
+  }
   else{
      //query to database
   $insertQuery = "INSERT INTO `register_details`(`company_name`, `email_id`, `company_password`) VALUES ('$companyName','$companyEmail','$companyPassword')";
