@@ -179,9 +179,10 @@ if(isset($_POST['submit'])){
 <?php
 //Store signup details in database
 if(isset($_POST['submit'])){
-  $companyName = $_POST['company_name'];
-  $companyEmail = $_POST['company_email'];
+  $companyName = filter_var($_POST['company_name'], FILTER_SANITIZE_STRING);
+  $companyEmail = filter_var($_POST['company_email'], FILTER_SANITIZE_STRING);
   $companyPassword = $_POST['company_password'];
+  $hashedPassword = password_hash($companyPassword,PASSWORD_DEFAULT);
   $confirmPassword = $_POST['confirm_password'];
 
   //check for existing email id
@@ -192,12 +193,12 @@ if(isset($_POST['submit'])){
   if($rowCount > 0){
     echo "<script>alert('Email already exist')</script>";
   }
-  elseif( $companyPassword != $confirmPassword){
-    echo "<script>alert('Password doesn't match')</script>";
+  else if( $companyPassword != $confirmPassword){
+    echo "<script>alert('Password does not match')</script>";
   }
   else{
      //query to database
-  $insertQuery = "INSERT INTO `register_details`(`company_name`, `email_id`, `company_password`) VALUES ('$companyName','$companyEmail','$companyPassword')";
+  $insertQuery = "INSERT INTO `register_details`(`company_name`, `email_id`, `company_password`) VALUES ('$companyName','$companyEmail','$hashedPassword')";
 
   $sqlExecute = mysqli_query($con, $insertQuery);
 
