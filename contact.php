@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/icon.png">
   
 
 
@@ -20,8 +21,14 @@
     
 </head>
 <body>
-<div class=" gencontainer">
-    <h1 class="form-head mt-2 mb-4 p-4" style="text-align: center;">Contact Here</h1>
+<div class=" gencontainer" style="background-image: linear-gradient(rgba(4, 9, 30, 0.9), rgba(4, 9, 30, 0.9)),url(images/c.jpg); height: 100vh; background-size:cover; width: 100%; background-position: 50% 50%; background-attachment: fixed;">
+
+<div class="text-center py-1 ">
+           
+           <p class="text-center text-secondary mt-2 mb-1 mx-4">Thank you for choosing <strong>TRESPASS</strong></p>
+           <h2 class="contact_head text-danger">Contact here...</h2>
+           
+       </div>
     <form action="back.php" method="post" id="contacting_form" class="container-fluid mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -88,7 +95,7 @@
                 
                 <!-- Submit button -->
                 <div class="submit-button">
-                    <button type="submit" class="btn btn-primary mt-4">Send message</button>
+                    <button type="submit" class="btn btn-info mt-4">Send message</button>
                 </div>
             </div>
         </div>

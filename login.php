@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/icon.png">
 
     <title>Login</title>
     
@@ -16,25 +17,26 @@
   <body>
     <section class="login_section mt-5" style="background-image: linear-gradient(rgba(4, 9, 30, 0.9), rgba(4, 9, 30, 0.9)),
     url(images/a.jpg); height: 100vh; background-size:cover; width: 100%; background-position: 50% 50%; background-attachment: fixed;">
-    <div class="mb-5">
-        <h1 class="form-heading">Welcome back to &nbsp;  <strong> TRESPASS</strong> </h1>
-      </div>
+        <div class="text-center py-1 ">
+           
+           <p class="text-center text-secondary mt-2 mb-1 mx-4">Welcome back to<strong>TRESPASS</strong></p>
+           <h2 class="login_head text-danger">Login here...</h2>
+           
+       </div>
     <form class=" needs-validation mt-2 mb-4 p-4 " novalidate style="max-width: 480px; margin: auto;" id="form">
-      <div class="mb-5">
-        <h2 class="login_head">Login here...</h2>
-      </div>
+
       <div class="mb-3 p-3">
-        <label for="exampleInputEmail1" class="form-label" id="login_texts">Email address</label>
+        <label for="exampleInputEmail1" class="form-label text-info" id="login_texts">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
       
         <div class="invalid-feedback">Email should not be empty!</div>
       </div>
       <div class="mb-3 p-3">
-        <label for="exampleInputPassword1" class="form-label" id="login_texts">Password</label>
+        <label for="exampleInputPassword1" class="form-label text-info" id="login_texts">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1">
       </div>
       <div class="submit-button p-4">
-        <button type="submit" onclick="loginAlert()" class="btn btn-primary "><b>Login</b></button>
+        <button type="submit" onclick="loginAlert()" class="btn btn-info "><b>Login</b></button>
       </div>
 
                       

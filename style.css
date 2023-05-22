@@ -13,11 +13,31 @@ body{
 .navbar{
   background-color: #090222;
 }
-.nav-link{
-  color: red;
+.navbar-nav .nav-item .nav-link {
+  position: relative; /* Create a positioning context */
+  color: #fff; /* Default text color */
+  text-decoration: none; /* Remove underline */
 }
-.nav-link:hover{
-  color: #484848;
+
+.navbar-nav .nav-item .nav-link::after {
+  content: ''; /* Create the underline element */
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Adjust the position of the underline */
+  width: 100%; /* Full width of the link */
+  height: 2px; /* Height of the underline */
+  background-color: red; /* Red underline color */
+  transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.navbar-nav .nav-item.active .nav-link::after,
+.navbar-nav .nav-item .nav-link:hover::after {
+  background-color: #fff; /* White underline color on hover and active */
+}
+
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item .nav-link:hover {
+  color: red; /* Red text color on hover and active */
 }
 
 .comvo_button{

@@ -35,6 +35,7 @@ if(isset($_POST['submit'])){
     <!-- <link rel="icon" href=""> -->
     <link rel="stylesheet" href="style.css">
     <script defer src="index.js"></script>
+    <link rel="icon" href="images/icon.png">
 
     
     
@@ -51,7 +52,7 @@ if(isset($_POST['submit'])){
         <div class="text-center py-1 ">
            
             <p class="text-center text-secondary mt-2 mb-1 mx-4">Thank you for choosing <strong>TRESPASS</strong></p>
-            <h2 class="signup_head">Signup here...</h2>
+            <h2 class="signup_head text-danger">Signup here...</h2>
             
         </div>
         
@@ -61,7 +62,7 @@ if(isset($_POST['submit'])){
               <div class="form-group row py-1">
                 <div class="form-group col ">
                   <!--Name-->
-                  <label class="form-label" for="validationCustom01">Name</label>
+                  <label class="form-label text-info" for="validationCustom01">Name</label>
                   <input type="text" class="form-control" id="name" placeholder="Name" required>
                   <div class="invalid-feedback">
                     Name required
@@ -72,7 +73,7 @@ if(isset($_POST['submit'])){
 
                 <!--username-->
                 <div class="form-group col ">
-                  <label class="form-label " for="validationCustomUsername">Username</label>
+                  <label class="form-label text-info" for="validationCustomUsername">Username</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-secondary" id="inputGroupPrepend">@</span>
@@ -88,7 +89,7 @@ if(isset($_POST['submit'])){
               <div class="form-group row py-1">
                 <!--Phone number-->
                 <div class="form-group col">
-                  <label class="form-label " for="validationCustom03">Phone</label>
+                  <label class="form-label text-info" for="validationCustom03">Phone</label>
                   <input type="tel" class="form-control" id="phone" name="phone"  placeholder="91 1234567890" pattern="[0-9]{2} [0-9]{10}" required>
                   <div class="invalid-feedback">
                     Phone number required
@@ -97,7 +98,7 @@ if(isset($_POST['submit'])){
 
                 <!--email-->
                 <div class="form-group col ">
-                  <label class="form-label " for="validationCustom03">Email address</label>
+                  <label class="form-label text-info" for="validationCustom03">Email address</label>
                   <input type="email" class="form-control" id="emailSignin" placeholder="Your email address" required>
                   <div class="invalid-feedback">
                     Email required
@@ -109,7 +110,7 @@ if(isset($_POST['submit'])){
               <div class="form-gropu row py-1">
                 <!--Password-->
                 <div class="form-group col">
-                  <label class="form-label " for="validationCustom04">Password</label>
+                  <label class="form-label text-info" for="validationCustom04">Password</label>
                   <input type="password" class="form-control" id="passwordSignin" onkeyup="passLength()" placeholder="Set password"   required>
                   <div class="invalid-feedback" >
                     Please enter a password.
@@ -122,7 +123,7 @@ if(isset($_POST['submit'])){
 
                 <!--Confirm password-->
                 <div class="form-group col">
-                  <label class="form-label " for="validationCustom05">Confirm password</label>
+                  <label class="form-label text-info" for="validationCustom05">Confirm password</label>
                   <input type="password" class="form-control" id="confirmPasswordSignin" onkeyup="passCheck()" placeholder="Confirm password" required>
                   <div class="invalid-feedback">
                       Please confirm password.
@@ -158,7 +159,7 @@ if(isset($_POST['submit'])){
              
                  <!--button-->
                  <div class="text-center">
-                    <button class="btn btn-primary text-center" name="submit" type="submit" id="signupButton" >Sign up</button>
+                    <button class="btn btn-info text-center" name="submit" type="submit" id="signupButton" >Sign up</button>
                 </div>
 
                 
