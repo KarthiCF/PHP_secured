@@ -2,7 +2,7 @@
 
 <?php
 if(isset($_POST['submit'])){
-  // echo "<script>alert('completed')</script>";
+
   $secret = "6Le_hiEmAAAAAPxnFt6f2RV126n5HZZqzcE5q1QP";
   $response = $_POST['g-recaptcha-response'];
   $remoteIP = $_SERVER['REMOTE_ADDR'];
@@ -170,42 +170,41 @@ if(isset($_POST['submit'])){
     var form = document.getElementById('form');
     form.reset();
   });
-
-
-
-  
-  
-  
- 
 </script>
-
-
-
   </body>
-
-  
-
 </html>
 
 
 
 <?php
+//Store signup details in database
 if(isset($_POST['submit'])){
   $companyName = $_POST['company_name'];
   $companyEmail = $_POST['company_email'];
   $companyPassword = $_POST['company_password'];
   $confirmPassword = $_POST['confirm_password'];
 
-  //query
+  //check for existing email id
+  $checkQuery = "SELECT * FROM `register_details` WHERE email_id ='$companyEmail'";
+  $resultQuery = mysqli_query($con, $checkQuery);
+  $rowCount = mysqli_num_rows($resultQuery);
+  
+  if($rowCount > 0){
+    echo "<script>alert('Email already exist')</script>";
+  }
+  else{
+     //query to database
   $insertQuery = "INSERT INTO `register_details`(`company_name`, `email_id`, `company_password`) VALUES ('$companyName','$companyEmail','$companyPassword')";
 
   $sqlExecute = mysqli_query($con, $insertQuery);
 
-  if($sqlExecute){
-    echo "<script>alert('updated')</script>";
-  }else{
+  if(!$sqlExecute){
     die(mysqli_errno($con));
   }
+  }
+
+
+
 
 }
 ?>
