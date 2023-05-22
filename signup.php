@@ -61,41 +61,15 @@ if(isset($_POST['submit'])){
 
               <div class="form-group row py-1">
                 <div class="form-group col ">
-                  <!--Name-->
-                  <label class="form-label text-info" for="validationCustom01">Name</label>
-                  <input type="text" class="form-control" id="name" placeholder="Name" required>
+                  <!--Company-->
+                  <label class="form-label text-info" for="validationCustom01">Company name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Company" required>
                   <div class="invalid-feedback">
-                    Name required
+                    Company name required
                   </div>
                 </div>
+
                 
-
-
-                <!--username-->
-                <div class="form-group col ">
-                  <label class="form-label text-info" for="validationCustomUsername">Username</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-secondary" id="inputGroupPrepend">@</span>
-                    </div>
-                    <input type="text" class="form-control" id="userName" placeholder="Username" aria-describedby="inputGroupPrepend" required>
-                    <div class="invalid-feedback">
-                    Username required
-                  </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group row py-1">
-                <!--Phone number-->
-                <div class="form-group col">
-                  <label class="form-label text-info" for="validationCustom03">Phone</label>
-                  <input type="tel" class="form-control" id="phone" name="phone"  placeholder="91 1234567890" pattern="[0-9]{2} [0-9]{10}" required>
-                  <div class="invalid-feedback">
-                    Phone number required
-                  </div>
-                </div>
-
                 <!--email-->
                 <div class="form-group col ">
                   <label class="form-label text-info" for="validationCustom03">Email address</label>
@@ -105,6 +79,11 @@ if(isset($_POST['submit'])){
                   </div>
                 </div>
               </div>
+                
+
+
+
+
               
 
               <div class="form-gropu row py-1">
@@ -116,7 +95,7 @@ if(isset($_POST['submit'])){
                     Please enter a password.
                   </div> 
                   <div class="alert alert-danger mt-2 px-1"  id="e2" role="alert" style="display: none;" >
-                    <p><small>Password must contain at least 8 or more characters</small></p>
+                    <p><small>Password must contain at least 8 characters</small></p>
                   </div>
 
                 </div>
