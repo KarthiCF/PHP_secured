@@ -27,13 +27,13 @@
 
       <div class="mb-3 p-3">
         <label for="exampleInputEmail1" class="form-label text-info" id="login_texts">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+        <input type="email" name="login_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
       
         <div class="invalid-feedback">Email should not be empty!</div>
       </div>
       <div class="mb-3 p-3">
         <label for="exampleInputPassword1" class="form-label text-info" id="login_texts">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <input type="password" name="login_password" class="form-control" id="exampleInputPassword1">
       </div>
       <div class="submit-button p-4">
         <button type="submit" onclick="loginAlert()" class="btn btn-info "><b>Login</b></button>
@@ -61,3 +61,27 @@
 
   </body>
 </html>
+
+<?php
+
+$loginEmail = filter_var($_POST['login_email'], FILTER_SANITIZE_STRING);
+$loginPassword = filter_var($_POST['login_password'], FILTER_SANITIZE_STRING);
+
+
+
+$selectQuery = "SELECT * FROM `register_details` WHERE email_id ='$loginEmail'";
+$result = mysqli_query($con, $selectQuery);
+$rowCount = mysqli_num_rows($result);
+$rowData = mysqli_fetch_assoc($result);
+
+if($rowCount >0){
+  if(password_verify($loginPassword, $rowData['login_password'])){
+    echo "<script>alert('Login successful')</script>";
+  }else{
+    echo "<script>alert('Invalid credentials')</script>";
+  }
+}else{
+  echo "<script>alert('Invalid credentials')</script>";
+}
+
+?>

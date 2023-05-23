@@ -20,11 +20,11 @@
 
 
 
-  <section class="main " style="background-image: linear-gradient(rgba(4, 9, 30, 0.9), rgba(4, 9, 30, 0.9)), url(images/e.jpg); height: 100vh; background-size:cover; width: 100%; background-position: 50% 50%; background-attachment: fixed;">
+  <section class="main " style="background-image: linear-gradient(rgba(4, 9, 12, 0.8), rgba(4, 9, 12, 0.8)), url(images/e.jpg); height: 100vh; background-size:cover; width: 100%; background-position: 50% 50%; background-attachment: fixed;">
 
       <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-black ">
-    <img src="images\l.png" alt="" class="logo" style="height:auto; width:15%">
+    <img src="images\logo.png" alt="" class="logo" style="height:auto; width:15%">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

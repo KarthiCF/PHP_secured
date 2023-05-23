@@ -35,13 +35,13 @@
                 <div class="form-group row py-2"> 
                      <!--Name  -->
                     <div class="form-group col py-2">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="name" class="form-label text-info">Name</label>
                         <input type="text"  class="form-control" id="name" name="visitor_name" placeholder="Timothy Dalton" pattern="[A-Za-z]{2,30}" required class="form-control">
                     </div> 
                     
                     <!-- Email -->
                     <div class="form-group col py-2">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" class="form-label text-info" >Email</label>
                         <input type="email" placeholder="Timothy.dalton@mail.com" class="form-control" name="visitor_email" id="email" required class="form-control">
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                 <div class="form-group row py-2">
                     <!-- Department -->
                     <div class="form-group col py-2">
-                        <label for="department_selection" class="form-label">Choose Department</label>
+                        <label for="department_selection" class="form-label text-info">Choose Department</label>
                         <select name="department_selection"  class="form-control" id="concerned_department" required class="form-control">
                             <option value="">Select Department</option>
                             <option value="marketing">Marketing</option>
@@ -62,14 +62,14 @@
 
                     <!-- Reason -->
                     <div class="form-group col py-2">
-                        <label for="title" class="form-label">Reason For Contacting</label>
+                        <label for="title" class="form-label text-info">Reason For Contacting</label>
                         <input type="text"  class="form-control" id="title" name="email_title" required placeholder="Unable to buy the voucher" pattern="[A-Za-z0-9\s]{8,60}" class="form-control">
                     </div>
                 </div>
                 
                 <!-- Message -->
                 <div class="form-group py-2">
-                    <label for="message" class="form-label">Write your message</label>
+                    <label for="message" class="form-label text-info">Write your message</label>
                     <textarea id="message"  class="form-control" name="visitor_message" placeholder="Say whatever you want." required class="form-control"></textarea>
                 </div>
 
@@ -78,7 +78,7 @@
                 <div class="form-group row py-2">
                     <!-- CAPTCHA input -->
                     <div class="form-group col py-2">
-                        <label for="captcha" class="form-label">Enter CAPTCHA</label>
+                        <label for="captcha" class="form-label text-info">Enter CAPTCHA</label>
                         <input type="text"  class="form-control" name="check_captcha" class="form-control" id="enterCap"> 
                     </div> 
 
