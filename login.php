@@ -1,3 +1,5 @@
+<?php include('connect.php') ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -23,7 +25,7 @@
            <h2 class="login_head text-danger">Login here...</h2>
            
        </div>
-    <form class=" needs-validation mt-2 mb-4 p-4 " novalidate style="max-width: 480px; margin: auto;" id="form">
+    <form method="post" class=" needs-validation mt-2 mb-4 p-4 " novalidate style="max-width: 480px; margin: auto;" id="form" action="">
 
       <div class="mb-3 p-3">
         <label for="exampleInputEmail1" class="form-label text-info" id="login_texts">Email address</label>
@@ -36,7 +38,9 @@
         <input type="password" name="login_password" class="form-control" id="exampleInputPassword1">
       </div>
       <div class="submit-button p-4">
-        <button type="submit" onclick="loginAlert()" class="btn btn-info "><b>Login</b></button>
+      <button type="submit" name="login_button" class="btn btn-info "><b>Login</b></button>
+       
+      
       </div>
 
                       
@@ -52,11 +56,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <script>
-      function loginAlert(){
-        alert("You have been successfully logged in")
-      }
-    </script>
+
 
 
   </body>
@@ -64,24 +64,34 @@
 
 <?php
 
-$loginEmail = filter_var($_POST['login_email'], FILTER_SANITIZE_STRING);
-$loginPassword = filter_var($_POST['login_password'], FILTER_SANITIZE_STRING);
+if(isset($_POST['login_button'])){
+
+  $loginEmail =filter_var( $_POST['login_email'], FILTER_VALIDATE_EMAIL);
+  $loginPassword = filter_var($_POST['login_password'], FILTER_VALIDATE_EMAIL);
+
+  $selectQuery = "SELECT * FROM `register_details` WHERE email_id='$loginEmail'";
+  $result = mysqli_query($con, $selectQuery);
+  $rowCount = mysqli_num_rows($result);
+ 
+  if($rowCount >0){
+    $rowData = mysqli_fetch_assoc($result);
+    $storedPassword = $rowData['company_password'];
+    if(password_verify($loginPassword, $storedPassword)){
 
 
+      echo "<script>alert('Login successful')</script>";
 
-$selectQuery = "SELECT * FROM `register_details` WHERE email_id ='$loginEmail'";
-$result = mysqli_query($con, $selectQuery);
-$rowCount = mysqli_num_rows($result);
-$rowData = mysqli_fetch_assoc($result);
-
-if($rowCount >0){
-  if(password_verify($loginPassword, $rowData['login_password'])){
-    echo "<script>alert('Login successful')</script>";
+      if($rowCount ==1){
+        echo "<script>window.open('index.php','_self')</script>";
+      }
+    }else{
+      echo "<script>alert('Invalid password')</script>";
+    }
   }else{
-    echo "<script>alert('Invalid credentials')</script>";
+    echo "<script>alert('No account found')</script>";
   }
-}else{
-  echo "<script>alert('Invalid credentials')</script>";
 }
+
+
 
 ?>

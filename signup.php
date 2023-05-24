@@ -2,7 +2,7 @@
 
 <?php
 if(isset($_POST['submit'])){
-
+//GOOGLE reCAPTCHA API
   $secret = "6Le_hiEmAAAAAPxnFt6f2RV126n5HZZqzcE5q1QP";
   $response = $_POST['g-recaptcha-response'];
   $remoteIP = $_SERVER['REMOTE_ADDR'];
@@ -10,11 +10,6 @@ if(isset($_POST['submit'])){
   $get_data = file_get_contents($url);
   $row = json_decode($get_data, true);
 
-  // if($row['success']=="true"){
-  //   echo "<script>alert('you are human')</script>";
-  // }else{
-  //   echo "<script>alert('you are robot')</script>";
-  // }
 }
 
 ?>
@@ -175,40 +170,38 @@ if(isset($_POST['submit'])){
 </html>
 
 
-
 <?php
-//Store signup details in database
+// Store signup details in database
 if(isset($_POST['submit'])){
-  $companyName = filter_var($_POST['company_name'], FILTER_SANITIZE_STRING);
-  $companyEmail = filter_var($_POST['company_email'], FILTER_SANITIZE_STRING);
+  $companyName = htmlspecialchars($_POST['company_name'], ENT_QUOTES, 'UTF-8');
+  $companyEmail = htmlspecialchars($_POST['company_email'], ENT_QUOTES, 'UTF-8');
   $companyPassword = $_POST['company_password'];
-  $hashedPassword = password_hash($companyPassword,PASSWORD_DEFAULT);
+  $hashedPassword = password_hash($companyPassword, PASSWORD_DEFAULT);
   $confirmPassword = $_POST['confirm_password'];
 
-  //check for existing email id
-  $checkQuery = "SELECT * FROM `register_details` WHERE email_id ='$companyEmail'";
-  $resultQuery = mysqli_query($con, $checkQuery);
-  $rowCount = mysqli_num_rows($resultQuery);
-  
-  if($rowCount > 0){
-    echo "<script>alert('Email already exist')</script>";
+  if(!preg_match("/^[a-zA-Z\s]+$/", $companyName)){
+    echo "<script>alert('Invalid name')</script>";
+  } else {
+    // Check for existing email id
+    $checkQuery = "SELECT * FROM `register_details` WHERE email_id = ?";
+    $stmt = $con->prepare($checkQuery);
+    $stmt->bind_param("s", $companyEmail);
+    $stmt->execute();
+    $resultQuery = $stmt->get_result();
+    $rowCount = $resultQuery->num_rows;
+    
+    if($rowCount > 0){
+      echo "<script>alert('Email already exists')</script>";
+    } else if($companyPassword != $confirmPassword){
+      echo "<script>alert('Password does not match')</script>";
+    } else {
+      // Insert data into database
+      $insertQuery = "INSERT INTO `register_details`(`company_name`, `email_id`, `company_password`) VALUES (?, ?, ?)";
+      $stmt = $con->prepare($insertQuery);
+      $stmt->bind_param("sss", $companyName, $companyEmail, $hashedPassword);
+      $stmt->execute();
+      $stmt->close();
+    }
   }
-  else if( $companyPassword != $confirmPassword){
-    echo "<script>alert('Password does not match')</script>";
-  }
-  else{
-     //query to database
-  $insertQuery = "INSERT INTO `register_details`(`company_name`, `email_id`, `company_password`) VALUES ('$companyName','$companyEmail','$hashedPassword')";
-
-  $sqlExecute = mysqli_query($con, $insertQuery);
-
-  if(!$sqlExecute){
-    die(mysqli_errno($con));
-  }
-  }
-
-
-
-
 }
 ?>
