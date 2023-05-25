@@ -12,7 +12,8 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/icon.png">
-
+<!-- recaptcha -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Login</title>
     
   </head>
@@ -36,6 +37,13 @@
       <div class="mb-3 p-3">
         <label for="exampleInputPassword1" class="form-label text-info" id="login_texts">Password</label>
         <input type="password" name="login_password" class="form-control" id="exampleInputPassword1">
+      </div>
+
+      <!-- google reCAPTCHA -->
+      <div class="container py-3">
+        <div class="row">
+           <div class="g-recaptcha" data-sitekey="6Le_hiEmAAAAAGh7hSaht5XBOzSW1LKP-PfXax5i"></div>
+        </div>
       </div>
       <div class="submit-button p-4">
       <button type="submit" name="login_button" class="btn btn-info "><b>Login</b></button>

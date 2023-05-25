@@ -2,13 +2,58 @@
 
 <?php
 if(isset($_POST['submit'])){
-//GOOGLE reCAPTCHA API
-  $secret = "6Le_hiEmAAAAAPxnFt6f2RV126n5HZZqzcE5q1QP";
-  $response = $_POST['g-recaptcha-response'];
-  $remoteIP = $_SERVER['REMOTE_ADDR'];
-  $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteIP";
-  $get_data = file_get_contents($url);
-  $row = json_decode($get_data, true);
+  //only if the CAPTCHA is completed and verified, the user details will be stored to database
+  if(isset($_POST['g-recaptcha-response'])){
+    $secret = "6Le_hiEmAAAAAPxnFt6f2RV126n5HZZqzcE5q1QP";
+    $remoteIP = $_SERVER['REMOTE_ADDR'];
+    $response = $_POST['g-recaptcha-response'];
+    $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteIP";
+    $get_data = file_get_contents($url);
+    $data= json_decode($get_data);
+    //if CAPTCHA is completed and verified the database operations starts
+    if($data->success==true){
+      echo "<script>alert('CAPTCHA correct')</script>";
+      $companyName = htmlspecialchars($_POST['company_name'], ENT_QUOTES, 'UTF-8');
+      $companyEmail = htmlspecialchars($_POST['company_email'], ENT_QUOTES, 'UTF-8');
+      $companyPassword = $_POST['company_password'];
+      $hashedPassword = password_hash($companyPassword, PASSWORD_DEFAULT);
+      $confirmPassword = $_POST['confirm_password'];
+
+      //To avoid SQL injection and XSS attacks
+      if(!preg_match("/^[a-zA-Z\s]+$/", $companyName)){
+        echo "<script>alert('Invalid name')</script>";
+      } else {
+        // Check for existing email id
+        $checkQuery = "SELECT * FROM `register_details` WHERE email_id = ?";
+        $stmt = $con->prepare($checkQuery);
+        $stmt->bind_param("s", $companyEmail);
+        $stmt->execute();
+        $resultQuery = $stmt->get_result();
+        $rowCount = $resultQuery->num_rows;
+        
+        if($rowCount > 0){
+          echo "<script>alert('Email already exists')</script>";
+        } else if($companyPassword != $confirmPassword){
+          echo "<script>alert('Password does not match')</script>";
+        } else {
+          // Insert data into database
+          $insertQuery = "INSERT INTO `register_details`(`company_name`, `email_id`, `company_password`) VALUES (?, ?, ?)";
+          $stmt = $con->prepare($insertQuery);
+          $stmt->bind_param("sss", $companyName, $companyEmail, $hashedPassword);
+          $stmt->execute();
+          $stmt->close();
+        }
+    }
+      }else{
+        echo "<script>alert('Complete CAPTCHA')</script>";
+    }
+    
+  }else{
+    echo "Recaptcha error";
+  }
+
+
+
 
 }
 
@@ -170,38 +215,4 @@ if(isset($_POST['submit'])){
 </html>
 
 
-<?php
-// Store signup details in database
-if(isset($_POST['submit'])){
-  $companyName = htmlspecialchars($_POST['company_name'], ENT_QUOTES, 'UTF-8');
-  $companyEmail = htmlspecialchars($_POST['company_email'], ENT_QUOTES, 'UTF-8');
-  $companyPassword = $_POST['company_password'];
-  $hashedPassword = password_hash($companyPassword, PASSWORD_DEFAULT);
-  $confirmPassword = $_POST['confirm_password'];
 
-  if(!preg_match("/^[a-zA-Z\s]+$/", $companyName)){
-    echo "<script>alert('Invalid name')</script>";
-  } else {
-    // Check for existing email id
-    $checkQuery = "SELECT * FROM `register_details` WHERE email_id = ?";
-    $stmt = $con->prepare($checkQuery);
-    $stmt->bind_param("s", $companyEmail);
-    $stmt->execute();
-    $resultQuery = $stmt->get_result();
-    $rowCount = $resultQuery->num_rows;
-    
-    if($rowCount > 0){
-      echo "<script>alert('Email already exists')</script>";
-    } else if($companyPassword != $confirmPassword){
-      echo "<script>alert('Password does not match')</script>";
-    } else {
-      // Insert data into database
-      $insertQuery = "INSERT INTO `register_details`(`company_name`, `email_id`, `company_password`) VALUES (?, ?, ?)";
-      $stmt = $con->prepare($insertQuery);
-      $stmt->bind_param("sss", $companyName, $companyEmail, $hashedPassword);
-      $stmt->execute();
-      $stmt->close();
-    }
-  }
-}
-?>
