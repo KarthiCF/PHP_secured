@@ -12,7 +12,6 @@ if(isset($_POST['submit'])){
     $data= json_decode($get_data);
     //if CAPTCHA is completed and verified the database operations starts
     if($data->success==true){
-      echo "<script>alert('CAPTCHA correct')</script>";
       $companyName = htmlspecialchars($_POST['company_name'], ENT_QUOTES, 'UTF-8');
       $companyEmail = htmlspecialchars($_POST['company_email'], ENT_QUOTES, 'UTF-8');
       $companyPassword = $_POST['company_password'];

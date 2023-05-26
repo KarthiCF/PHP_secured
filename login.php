@@ -1,55 +1,55 @@
 <?php include('connect.php') ?>
 <?php
-if(isset($_POST['login_button'])){
-  //only if the CAPTCHA is completed and verified, the user details will be stored to database
-  if(isset($_POST['g-recaptcha-response'])){
+session_start(); // Start the session
+
+if (isset($_POST['login_button'])) {
+  // Only if the CAPTCHA is completed and verified, the user details will be stored in the database
+  if (isset($_POST['g-recaptcha-response'])) {
     $secret = "6Le_hiEmAAAAAPxnFt6f2RV126n5HZZqzcE5q1QP";
     $remoteIP = $_SERVER['REMOTE_ADDR'];
     $response = $_POST['g-recaptcha-response'];
     $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteIP";
     $get_data = file_get_contents($url);
-    $data= json_decode($get_data);
-    //if CAPTCHA is completed and verified the database operations starts
-    if($data->success==true){
-      echo "<script>alert('CAPTCHA correct')</script>";
-      $loginEmail =filter_var( $_POST['login_email'], FILTER_VALIDATE_EMAIL);
-      $loginPassword = filter_var($_POST['login_password'], FILTER_VALIDATE_EMAIL);
+    $data = json_decode($get_data);
+    // If CAPTCHA is completed and verified, the database operations start
+    if ($data->success == true) {
 
-      $selectQuery = "SELECT * FROM `register_details` WHERE email_id='$loginEmail'";
-      $result = mysqli_query($con, $selectQuery);
-      $rowCount = mysqli_num_rows($result);
-    
-      if($rowCount >0){
-        $rowData = mysqli_fetch_assoc($result);
+      $loginEmail = htmlspecialchars($_POST['login_email'], ENT_QUOTES, 'UTF-8');
+      $loginPassword = htmlspecialchars($_POST['login_password'], ENT_QUOTES, 'UTF-8');
+      // Check for existing email id
+      $checkQuery = "SELECT * FROM `register_details` WHERE email_id = ?";
+      $stmt = $con->prepare($checkQuery);
+      $stmt->bind_param("s", $loginEmail);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $rowCount = $result->num_rows;
+
+      if ($rowCount > 0) {
+        $rowData = $result->fetch_assoc();
         $storedPassword = $rowData['company_password'];
-        if(password_verify($loginPassword, $storedPassword)){
-
-
+        if (password_verify($loginPassword, $storedPassword)) {
           echo "<script>alert('Login successful')</script>";
 
-          if($rowCount ==1){
-            echo "<script>window.open('index.php','_self')</script>";
+          if ($rowCount == 1) {
+            $_SESSION['email'] = $loginEmail;
+            echo "<script>window.open('index.php', '_self')</script>";
           }
-        }else{
+        } else {
           echo "<script>alert('Invalid password')</script>";
         }
-      }else{
+      } else {
         echo "<script>alert('No account found')</script>";
       }
-      }else{
-        echo "<script>alert('Complete CAPTCHA')</script>";
+      $stmt->close();
+    } else {
+      echo "<script>alert('Complete CAPTCHA')</script>";
     }
-    
-  }else{
+  } else {
     echo "Recaptcha error";
   }
-
-
-
-
 }
-
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -121,13 +121,3 @@ if(isset($_POST['login_button'])){
   </body>
 </html>
 
-<?php
-
-// if(isset($_POST['login_button'])){
-
-  
-// }
-
-
-
-?>

@@ -1,3 +1,7 @@
+<?php
+include('connect.php');
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,52 +10,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TRESPASS</title>
-   <!-- Bootstrap CSS -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="images/icon.png">
-
-
 </head>
 
 <body>
-
-
-
   <section class="main " style="background-image: linear-gradient(rgba(4, 9, 12, 0.8), rgba(4, 9, 12, 0.8)), url(images/e.jpg); height: 100vh; background-size:cover; width: 100%; background-position: 50% 50%; background-attachment: fixed;">
 
-      <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black ">
-    <img src="images\logo.png" alt="" class="logo" style="height:auto; width:15%">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">HOME</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="about.php">ABOUT</a>
-        </li>
-        <li class="nav-item active ">
-          <a class="nav-link" href="">RED TEAM</a>
-        </li>
-        <li class="nav-item active ">
-          <a class="nav-link" href="">BLUE TEAM</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="contact.php">CONTACT</a>
-        </li>
-        <li class="nav-item active">
-        <a href="login.php" class="nav-link">LOGIN</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black ">
+      <img src="images\logo.png" alt="" class="logo" style="height:auto; width:15%">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">HOME</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="about.php">ABOUT</a>
+          </li>
+          <li class="nav-item active ">
+            <a class="nav-link" href="">RED TEAM</a>
+          </li>
+          <li class="nav-item active ">
+            <a class="nav-link" href="">BLUE TEAM</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="contact.php">CONTACT</a>
+          </li>
+          <li class="nav-item active">
+            <a href="login.php" class="nav-link">LOGIN</a>
+          </li>
+
+          <?php
+          if (isset($_SESSION['email'])) {
+            // Retrieve the username based on the logged-in user's email
+            $email = $_SESSION['email'];
+            $selectQuery = "SELECT username FROM register_details WHERE email_id = ?";
+            $stmt = $con->prepare($selectQuery);
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            // Check if a row is returned
+            if ($result->num_rows > 0) {
+              $row = $result->fetch_assoc();
+              $username = $row['username'];
+
+             // Display the username in the navigation menu
+            echo '<li class="nav-item active">';
+            echo '<a class="nav-link" href="#">'.$username.'</a>';
+            echo '</li>';
+           }
+
+            $stmt->close();
+          }
+          ?>
+        </ul>
+      </div>
+    </nav>
 
 
   <div class="container-fluid mt-5 py-5 mx-5">
