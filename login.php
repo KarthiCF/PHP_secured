@@ -105,7 +105,7 @@ if (isset($_POST['login_button'])) {
                       
       <div class="form-group text-center ">                  
 
-        <p class="text-secondary text-center mt-3 px-3">New to &nbsp;<b>TRESPASS</b> ? <a class="text-secondary" href="signup.php"><b>Signup here</b></a></p> 
+        <p class="text-secondary text-center mt-3 px-3">New to &nbsp;<b>TRESPASS</b> ? <a class="text-secondary"  href="signup.php"><b>Signup here</b></a></p> 
     </div>  
       
     </form>

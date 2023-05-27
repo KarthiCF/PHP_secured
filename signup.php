@@ -41,6 +41,8 @@ if(isset($_POST['submit'])){
           $stmt->bind_param("sss", $companyName, $companyEmail, $hashedPassword);
           $stmt->execute();
           $stmt->close();
+          echo "<script>alert('Account created successfully')</script>";
+          echo "<script>window.open('login.php', '_self')</script>";
         }
     }
       }else{

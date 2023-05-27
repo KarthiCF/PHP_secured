@@ -30,29 +30,27 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">HOME</a>
+            <a class="nav-link"  href="#">HOME</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="about.php">ABOUT</a>
+            <a class="nav-link" target="_blank" href="about.php">ABOUT</a>
           </li>
           <li class="nav-item active ">
-            <a class="nav-link" href="">RED TEAM</a>
+            <a class="nav-link" target="_blank" href="">RED TEAM</a>
           </li>
           <li class="nav-item active ">
-            <a class="nav-link" href="">BLUE TEAM</a>
+            <a class="nav-link" target="_blank" href="">BLUE TEAM</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="contact.php">CONTACT</a>
+            <a class="nav-link"  href="contact.php">CONTACT</a>
           </li>
-          <li class="nav-item active">
-            <a href="login.php" class="nav-link">LOGIN</a>
-          </li>
+
 
           <?php
           if (isset($_SESSION['email'])) {
-            // Retrieve the username based on the logged-in user's email
+            // Retrieve the companyName based on the logged-in user's email
             $email = $_SESSION['email'];
-            $selectQuery = "SELECT username FROM register_details WHERE email_id = ?";
+            $selectQuery = "SELECT company_name FROM register_details WHERE email_id = ?";
             $stmt = $con->prepare($selectQuery);
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -61,16 +59,29 @@ session_start();
             // Check if a row is returned
             if ($result->num_rows > 0) {
               $row = $result->fetch_assoc();
-              $username = $row['username'];
+              $companyName = $row['company_name'];
 
-             // Display the username in the navigation menu
-            echo '<li class="nav-item active">';
-            echo '<a class="nav-link" href="#">'.$username.'</a>';
-            echo '</li>';
+              // logout link
+              echo '<li class="nav-item active">';
+              echo '<a href="logout.php"  class="nav-link">LOGOUT</a>';
+              echo '</li>';
+            
+              //Display username in Homepage
+              echo '<li class="nav-item active">';
+              echo '<a class="nav-link" href="#">'.$companyName.'</a>';
+              echo '</li>';
+
+           }else{
+            echo '<li class="nav-item active">
+            <a href="login.php"  class="nav-link">LOGIN</a>
+          </li>';
            }
 
             $stmt->close();
-          }
+          }else{
+            echo '<li class="nav-item active">
+            <a href="login.php"  class="nav-link">LOGIN</a>
+          </li>';}
           ?>
         </ul>
       </div>
@@ -82,7 +93,7 @@ session_start();
       <h1 class="index_quote" style="color: grey; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold; font-size: 54px;">"Fortify your Defenses,<br><br> 
       &nbsp&nbspUnleash our Expertise"</h1>
     </div>
-    <a href="contact.php" class="convo_button mt-5 mx-3 p-2" style="background-color: red; color: black; border-radius: 5px; display: inline-block; padding: 2px; font-weight: bold; border-color:black;">
+    <a href="contact.php"  class="convo_button mt-5 mx-3 p-2" style="background-color: red; color: black; border-radius: 5px; display: inline-block; padding: 2px; font-weight: bold; border-color:black;">
   Spark a conversation with us
 </a>
 
