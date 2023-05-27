@@ -21,9 +21,14 @@ if(isset($_POST['submit'])){
       //To avoid SQL injection and XSS attacks
       if(!preg_match("/^[a-zA-Z\s]+$/", $companyName)){
         echo "<script>alert('Invalid name')</script>";
-      } elseif(strlen($companyPassword) < 8) {
+      }
+      elseif(strlen($companyPassword) < 8) {//checks password length
         echo "<script>alert('Password must be at least 8 characters long')</script>";
-      }else {
+      }
+      elseif(!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/", $companyPassword)) {
+        echo "<script>alert('Password must contain at least one special character, one number, and one alphabet')</script>";
+      }
+      else {
         // Check for existing email id
         $checkQuery = "SELECT * FROM `register_details` WHERE email_id = ?";
         $stmt = $con->prepare($checkQuery);
