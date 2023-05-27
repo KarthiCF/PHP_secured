@@ -19,20 +19,26 @@ body{
   text-decoration: none; 
 }
 
+/* customer logo */
+.customer_logo {
+
+  display: inline-block;
+  /* padding: 5px 8px; */
+  border: 3px solid red;
+  border-radius: 60px;
+  background-color: black;
+
+}
+.customer_logo:hover{
+  color: white;
+}
+
+
 .navbar-nav .nav-item .nav-link:hover {
 
 
   color: red; 
   transition: background-color 0.3s; 
-}
-
-/* customer logo */
-.customer_logo {
-  display: inline-block;
-  padding: 5px 8px;
-  border: 3px solid red;
-  background-color: black;
-  color: white;
 }
 
 .comvo_button{

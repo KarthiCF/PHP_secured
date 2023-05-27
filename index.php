@@ -69,7 +69,7 @@ session_start();
             
               //Display username in Homepage
               echo '<li class="nav-item active">';
-              echo '<a class="nav-link customer_logo" href="#"><strong>'.$companyName.'</strong></a>';
+              echo '<a class="nav-link customer_logo" style="color:red" href="#"><strong>'.$companyName.'</strong></a>';
               echo '</li>';
 
            }else{

@@ -65,6 +65,7 @@ if (isset($_POST['login_button'])) {
     <link rel="icon" href="images/icon.png">
 <!-- recaptcha -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script defer src="index.js"></script>
     <title>Login</title>
     
   </head>
@@ -88,6 +89,9 @@ if (isset($_POST['login_button'])) {
       <div class="mb-3 p-3">
         <label for="exampleInputPassword1" class="form-label text-info" id="login_texts">Password</label>
         <input type="password" name="login_password" class="form-control" id="exampleInputPassword1">
+        <div class="invalid-feedback">
+                      Please confirm password.
+                  </div>
       </div>
 
       <!-- google reCAPTCHA -->
