@@ -44,6 +44,7 @@ session_start();
           <li class="nav-item active">
             <a class="nav-link"  href="contact.php">CONTACT</a>
           </li>
+          
 
 
           <?php
@@ -68,12 +69,12 @@ session_start();
             
               //Display username in Homepage
               echo '<li class="nav-item active">';
-              echo '<a class="nav-link" href="#">'.$companyName.'</a>';
+              echo '<a class="nav-link customer_logo" href="#"><strong>'.$companyName.'</strong></a>';
               echo '</li>';
 
            }else{
             echo '<li class="nav-item active">
-            <a href="login.php"  class="nav-link">LOGIN</a>
+            <a href="login.php"  class="nav-link-customer-logo">LOGIN</a>
           </li>';
            }
 
