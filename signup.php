@@ -162,7 +162,7 @@ if(isset($_POST['submit'])){
                 <div class="form-check ">
                   <input class="form-check-input " type="checkbox" value="" id="invalidCheck" required>
                   <label class="form-label text-secondary " class="form-check-label" for="invalidCheck">
-                    Agree to <a class="text-secondary" href="#"><b>Terms and Conditions</b> </a>& <a class="text-secondary" href="#"><b>Privacy Policy</b></a>
+                    Agree to <a class="text-secondary" href="terms_and_conditions.html"><b>Terms and Conditions</b> </a>& <a class="text-secondary" href="privacy_policy.html"><b>Privacy Policy</b></a>
                   </label>
                   <div class="invalid-feedback">
                       You must agree before submitting.
