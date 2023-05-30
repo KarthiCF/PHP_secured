@@ -53,9 +53,10 @@
                         <label for="department_selection" class="form-label text-info">Choose Department</label>
                         <select name="department_selection"  class="form-control" id="concerned_department" required class="form-control">
                             <option value="">Select Department</option>
-                            <option value="marketing">Marketing</option>
+                            <option value="redTeam">Red Team Services</option>
+                            <option value="blueTeam">Blue Team Services</option>
                             <option value="billing">Billing</option>
-                            <option value="technical_support">Technical support</option>
+                            <!-- <option value="technical_support">Technical support</option> -->
                             <option value="other_queries">Other queries</option>
                         </select>
                     </div>
@@ -95,7 +96,7 @@
                 
                 <!-- Submit button -->
                 <div class="submit-button">
-                    <button type="submit" class="btn btn-info mt-4">Send message</button>
+                    <button type="submit" name="send" class="btn btn-info mt-4">Send message</button>
                 </div>
             </div>
         </div>

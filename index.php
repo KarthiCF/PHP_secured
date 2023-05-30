@@ -1,6 +1,12 @@
 <?php
 include('connect.php');
 session_start();
+
+//Alert showing in home page when the contact form is sucessfully submitted
+if (isset($_GET['success_message'])) {
+  $success_message = urldecode($_GET['success_message']);
+  echo "<script>alert('$success_message')</script>";
+}
 ?>
 
 <!DOCTYPE html>
